@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace AdventOfCode2020
 {
@@ -11,30 +11,37 @@ namespace AdventOfCode2020
 
 		static public void PrintSolution(int partNumber = 1)
 		{
+			List<int> numbers = new List<int>();
+
+			foreach (var line in lines)
+			{
+				numbers.Add(Int32.Parse(line));
+			}
+
 			if (partNumber == 1)
 			{
-				for (int i = 0; i < lines.Length; i++)
+				foreach (var num in numbers)
 				{
-					for (int j = i + 1; j < lines.Length; j++)
+					var numb = numbers.FirstOrDefault(a => a + num == 2020);
+					if (numb != 0)
 					{
-						if (Int32.Parse(lines[i]) + Int32.Parse(lines[j]) == 2020)
-						{
-							Console.WriteLine(Int32.Parse(lines[i]) * Int32.Parse(lines[j]));
-						}
+						Console.WriteLine(numb * num);
+						return;
 					}
 				}
 			}
 			else if (partNumber == 2)
 			{
-				for (int i = 0; i < lines.Length; i++)
+				for (int i = 0; i < numbers.Count; i++)
 				{
-					for (int j = i + 1; j < lines.Length; j++)
+					for (int j = i + 1; j < numbers.Count; j++)
 					{
-						for (int u = j + 1; u < lines.Length; u++)
-							if (Int32.Parse(lines[i]) + Int32.Parse(lines[j]) + Int32.Parse(lines[u]) == 2020)
-							{
-								Console.WriteLine(Int64.Parse(lines[i]) * Int64.Parse(lines[j]) * Int32.Parse(lines[u]));
-							}
+						var numb = numbers.FirstOrDefault(a => a + numbers[i] + numbers[j] == 2020);
+						if (numb != 0)
+						{
+							Console.WriteLine(numb * numbers[i] * numbers[j]);
+							return;
+						}
 					}
 				}
 			}

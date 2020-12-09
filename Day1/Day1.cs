@@ -13,10 +13,7 @@ namespace AdventOfCode2020
 		{
 			List<int> numbers = new List<int>();
 
-			foreach (var line in lines)
-			{
-				numbers.Add(Int32.Parse(line));
-			}
+			numbers = lines.Select(a => Int32.Parse(a)).ToList();
 
 			if (partNumber == 1)
 			{

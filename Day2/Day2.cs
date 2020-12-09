@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode2020
 {
@@ -20,7 +21,6 @@ namespace AdventOfCode2020
 					int min = 0, max = 0;
 					char keyword = '0';
 					string newLine = line;
-					int keywordsInStringCount = 0;
 
 					for (int i = 0; i < newLine.Length; i++)
 					{
@@ -41,11 +41,7 @@ namespace AdventOfCode2020
 						}
 					}
 
-					foreach (var c in newLine)
-					{
-						if (c == keyword)
-							keywordsInStringCount++;
-					}
+					int keywordsInStringCount = newLine.Count(a => a == keyword);
 
 					if (keywordsInStringCount >= min && keywordsInStringCount <= max)
 					{

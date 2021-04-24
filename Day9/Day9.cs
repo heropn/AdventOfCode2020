@@ -53,7 +53,6 @@ namespace AdventOfCode2020
 				List<ulong> numbers = new List<ulong>();
 
 				ulong lookedNumber = 20874512;
-				//ulong lookedNumber = 127;
 				ulong actualNumber = 0;
 				int startIndex = 0;
 

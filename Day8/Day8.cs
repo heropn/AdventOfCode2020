@@ -130,8 +130,6 @@ namespace AdventOfCode2020
 				}
 			}
 
-			//foreach(va)
-
 			if (isValid)
 			{
 				Console.WriteLine(accumulatorValue);
